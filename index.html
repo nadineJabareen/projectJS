@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For Final</title>
+    <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+    <header>
+        <h1>Wisteria Lane - Phone Book</h1>
+    </header>
+    <main>
+        <div class="container">
+            <div class="top-part">
+                <input type="text" id="searchInput" placeholder="Search" />
+                    <div id="top-part-buttons">
+                         <button><i >&#x1F5D1;</i></button>
+                         <button><i>&#x2795;</i></button>
+                    </div>
+            </div>
+    
+            <ul class="List">
+                <li>
+                    <div class="Display">
+                        <img src="images/susan.jpg" alt="susan" />
+                        <span class="Name">Susan mayers</span>
+                    </div>
+                    <div class="List-icons">
+                        <a href="#details-susan"><button title="Details">&#x2755;</button></a>
+                        <a href="#edit-susan"><button title="Edit">&#9998;</button></a>
+                        <a href="#delete-susan"><button title="Delete">&#x1F5D1;</button></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="Display">
+                        <img src="images/bree.jpg" alt="bree"/>
+                        <span class="Name">Bree van de kamp</span>
+                    </div>
+                    <div class="List-icons">
+                        <button title="Details"><i>&#x2755;</i></button>
+                        <button title="Edit"><i>&#9998;</i></button>
+                        <button title="Delete"><i>&#x1F5D1;</i></button>
+                    </div>
+                </li>
+                <li>
+                    <div class="Display">
+                        <img src="images/Gabrielle.jpeg" alt="Gabrielle"/>
+                        <span class="Name">Gabrielle solis</span>
+                    </div>
+                    <div class="List-icons">
+                        <button title="Details"><i>&#x2755;</i></button>
+                        <button title="Edit"><i>&#9998;</i></button>
+                        <button title="Delete"><i>&#x1F5D1;</i></button>
+                    </div>
+                </li>
+                <li>
+                    <div class="Display">
+                        <img src="images/lennetScavo.jpg" alt="Lennet" />
+                        <span class="Name">Lennet Scavo</span>
+                    </div>
+                    <div class="List-icons">
+                        <button title="Details"><i>&#x2755;</i></button>
+                        <button title="Edit"><i>&#9998;</i></button>
+                        <button title="Delete"><i>&#x1F5D1;</i></button>
+                    </div>
+                </li>
+            </ul>
+
+            <section id="details-susan" class="overlay">
+            <div class="popup">
+                <h2>Susan Mayers</h2>
+                <p><b>Age:</b> 38</p>
+                <p><b>Phone:</b> 1234567890</p>
+                <p><b>Address:</b> 12 Spooner St,fairview</p><br>
+                <a href="" class="bottom-options"> Close </a>
+            </div>
+            </section>
+            
+            <section id="edit-susan" class="overlay">
+                <div class="popup">
+                    <h2>Edit contact</h2>
+                    <form>
+                        <label>Name:</label><input type="text" value="Susan Mayers" />
+                        <label>Phone:</label><input type="text" value="1234567890" />
+                        <label>Address:</label><input type="text" value="12 Spooner St" />
+                    </form><br>
+                    <a href="" class="bottom-options">Cancel</a>
+                    <a href="" class="bottom-options">save</a>
+                </div>
+            </section>
+            
+            <section id="delete-susan" class="overlay">
+                <div class="popup">
+                    <h2>would you like to Delete this contact?</h2>
+                    <p>Are you sure you want to delete Susan Mayers?</p><br>
+                    <a href="" class="bottom-options">Delete</a>
+                    <a href="" class="bottom-options">No</a>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <footer> &copy; All rights reserved (Nadine) </footer>
+    
+    </body>
+    
+    </html>
+
+
+
+
+
+</body>
