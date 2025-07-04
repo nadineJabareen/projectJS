@@ -81,7 +81,7 @@ closePopup.addEventListener("click", (e) => {
 });
 
 /*********************************************************************************************************************************** */
-//the delete akk button js : 
+//the delete all button js : 
 const deleteAllBtn = document.getElementById("deletAlluser-btn");
 
 deleteAllBtn.addEventListener("click", () => {
