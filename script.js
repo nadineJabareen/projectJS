@@ -4,7 +4,7 @@ const contacts = [
     {
       name: "Susan Mayers",
       phone: "1234567890",
-      email: "susan@example.com",
+      email: "susan@gmail.com",
       image: "images/susan.jpg"
     },
     {
