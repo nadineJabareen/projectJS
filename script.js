@@ -202,4 +202,11 @@ searchInput.addEventListener("input", () => {
 //using MyFunction function 
   MyFunction(filteredContacts);
 });
+/***********************************************************************************************************************************************************************/
+li.addEventListener("mouseover", () => {
+  li.classList.add("hovered");
+});
+li.addEventListener("mouseout", () => {
+  li.classList.remove("hovered");
+});
 });
