@@ -1,8 +1,8 @@
+ "use strict";
 document.addEventListener("DOMContentLoaded", () => {
-  "use strict";
   // contact list the setting of the first ones the base 
   const contacts = [
-    {
+        {
       name: "Susan Mayers",
       phone: "1234567890",
       email: "susan@gmail.com",
@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
       email: "lynette@gmail.com",
       image: "images/lennetScavo.jpg",
     },
+
   ];
 
   /*******************************************************************************************************************************************************/
@@ -53,6 +54,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function MyFunction(contactArray = contacts) {
   contactList.innerHTML = "";
+
+// showing a message if there are no contact 
+  if (contactArray.length === 0) {
+    contactList.innerHTML = "<li style='text-align: center;'>No contacts are in the phone book</li>";
+    updatePeopleCount(0);
+    return; 
+  }
 
   // counter of how many contacts are displayed 
   updatePeopleCount(contactArray.length);
@@ -138,11 +146,23 @@ addBtn.addEventListener("click", () => {
 // adding the new contact after filling the information making the input for each element the value the user inputs 
 saveAddBtn.addEventListener("click", () => {
   const newContact = {
-    name: addNameInput.value,
-    phone: addPhoneInput.value,
-    email: addEmailInput.value,
-    image: addImageInput.value || "images/default.jpg", // fallback image
+    name: addNameInput.value.trim(), //trim to make sure the input is clean and no spacing or anything
+    phone: addPhoneInput.value.trim(),
+    email: addEmailInput.value.trim(),
+    image: addImageInput.value .trim()
   };
+//phone + name can not be null 
+ if (newContact.name === "" || newContact.phone === "") {
+    alert("Name and phone number are required!");
+    return;
+  }
+
+  //making sure שלא יהיה כפיליות לפני שעושים  push to the new contact 
+const isDuplicate = contacts.some(c => c.name.toLowerCase() === newContact.name.toLowerCase());
+if (isDuplicate) {
+  alert("A contact with this name already exists!");
+  return;
+}
 
   //Add the new contact to the array using push 
   contacts.push(newContact);
