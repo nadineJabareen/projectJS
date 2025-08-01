@@ -99,7 +99,7 @@ function MyFunction(contactArray = contacts) {
         editPopup.style.display = "flex";
       });
 
-      // Delete button
+      // Delete button - delete by name 
      li.querySelector(".delete-btn").addEventListener("click", () => {
      const contactIndex = contacts.findIndex(c => c.name === contact.name);
      if (contactIndex !== -1) {
