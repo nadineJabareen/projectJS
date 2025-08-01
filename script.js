@@ -50,6 +50,21 @@ contacts.forEach((contact, index) => {
   contactList.appendChild(li);
 });
 
+   // for the edit pen part for each contact 
+const editBtn = li.querySelector(".edit-btn");
+editBtn.addEventListener("click", () => {
+  currentEditIndex = index; // for each contact bieng edited 
+
+  // Fill the popup with that contact's info
+  editNameInput.value = contact.name;
+  editPhoneInput.value = contact.phone;
+  editEmailInput.value = contact.email;
+
+  // Show the popup
+  editPopup.style.display = "flex";
+});
+});
+
 
 // Get popup elements
 const popup = document.getElementById("details-popup");
