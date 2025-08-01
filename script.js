@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // the contact info that is shown on each popup thingy 
+  // the contact info that is shown on each popup 
 const contacts = [
     {
       name: "Susan Mayers",
@@ -89,7 +89,7 @@ document.querySelectorAll(".details-btn").forEach((btn) => {
   });
 });
 
-// Close button
+//the  Close button
 closePopup.addEventListener("click", (e) => {
   e.preventDefault();
   popup.style.display = "none";
@@ -102,5 +102,73 @@ const deleteAllBtn = document.getElementById("deletAlluser-btn");
 deleteAllBtn.addEventListener("click", () => {
   contactList.innerHTML = ""; // This clears all the contacts from the screen
 });
+// the editing each of the contacts information 
+const editPopup = document.getElementById("edit-popup");
+const editNameInput = document.getElementById("edit-name");
+const editPhoneInput = document.getElementById("edit-phone");
+const editEmailInput = document.getElementById("edit-email");
+const saveEditBtn = document.getElementById("save-edit");
+const closeEditBtn = document.getElementById("close-edit-popup");
+
+let currentEditIndex = null; // we remember which contact we're editing
+
+closeEditBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  editPopup.style.display = "none";
+  currentEditIndex = null;
+});
+
+/********************************************************************************************************************************* */
+// Save button when editing each contact 
+saveEditBtn.addEventListener("click", () => {
+  if (currentEditIndex !== null) {
+    // Update the contact in the array
+    contacts[currentEditIndex].name = editNameInput.value;
+    contacts[currentEditIndex].phone = editPhoneInput.value;
+    contacts[currentEditIndex].email = editEmailInput.value;
+
+    //Refresh the contact list
+    contactList.innerHTML = "";
+    contacts.forEach((contact, index) => {
+      const li = document.createElement("li");
+      li.innerHTML = `
+        <div class="Display">
+          <img src="${contact.image}" alt="${contact.name}">
+          <span class="Name">${contact.name}</span>
+        </div>
+        <div class="List-icons">
+          <button class="details-btn" data-index="${index}" title="Details">&#x2755;</button>
+          <button class="edit-btn" data-index="${index}" title="Edit">&#9998;</button>
+          <button class="delete-btn" data-index="${index}" title="Delete">&#x1F5D1;</button>
+        </div>
+      `;
+      contactList.appendChild(li);
+
+      // Add popup for details
+      const detailsBtn = li.querySelector(".details-btn");
+      detailsBtn.addEventListener("click", () => {
+        popupName.textContent = contact.name;
+        popupPhone.textContent = contact.phone;
+        popupEmail.textContent = contact.email;
+        popup.style.display = "flex";
+      });
+
+      // Add popup for edit
+      const editBtn = li.querySelector(".edit-btn");
+      editBtn.addEventListener("click", () => {
+        currentEditIndex = index;
+        editNameInput.value = contact.name;
+        editPhoneInput.value = contact.phone;
+        editEmailInput.value = contact.email;
+        editPopup.style.display = "flex";
+      });
+    });
+
+    // Close the popup
+    editPopup.style.display = "none";
+    currentEditIndex = null;
+  }
+});
+// making the search bar
 
 });
