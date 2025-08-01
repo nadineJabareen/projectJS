@@ -100,10 +100,12 @@ function MyFunction(contactArray = contacts) {
       });
 
       // Delete button
-      li.querySelector(".delete-btn").addEventListener("click", () => {
-        contacts.splice(index, 1);
-        MyFunction();
-      });
+     li.querySelector(".delete-btn").addEventListener("click", () => {
+     const contactIndex = contacts.findIndex(c => c.name === contact.name);
+     if (contactIndex !== -1) {
+     contacts.splice(contactIndex, 1);
+      MyFunction();}
+    });
     });
   }
 
