@@ -99,9 +99,8 @@ border: none;
 
 
 /*                                                      list                                                                              */
-.List li:hover 
-{
-background-color: #f4a688;
+.hovered {
+  background-color: #f4a688;
 }
 
 .List li
@@ -215,6 +214,11 @@ margin:auto;
 padding: 8px; 
 }
 
+
+/* the eddit section overley */
+.Edit-overlay{
+    background-color: black;
+}
 
 /********************************************************************************************************************/
 /*                                                     HW עריכת מסמף                                                 /
