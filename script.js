@@ -48,8 +48,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const saveEditBtn = document.getElementById("save-edit");
   const closeEditBtn = document.getElementById("close-edit-popup");
 
+/******************************************************************************************************************************************************* */
+let currentEditContact = null;
 
-  /*******************************************************************************************************************************************************/
+/*******************************************************************************************************************************************************/
 ///                                           defining the MyFunction so i can be able to filter ולשאר הנלווים
 
 function MyFunction(contactArray = contacts) {
@@ -91,13 +93,13 @@ function MyFunction(contactArray = contacts) {
       });
 
       // Edit popup
-      li.querySelector(".edit-btn").addEventListener("click", () => {
-        currentEditIndex = index;
-        editNameInput.value = contact.name;
-        editPhoneInput.value = contact.phone;
-        editEmailInput.value = contact.email;
-        editPopup.style.display = "flex";
-      });
+     li.querySelector(".edit-btn").addEventListener("click", () => {
+  currentEditContact = contact; // store the actual contact object
+  editNameInput.value = contact.name;
+  editPhoneInput.value = contact.phone;
+  editEmailInput.value = contact.email;
+  editPopup.style.display = "flex";
+});
 
       // Delete button - delete by name 
      li.querySelector(".delete-btn").addEventListener("click", () => {
@@ -110,16 +112,17 @@ function MyFunction(contactArray = contacts) {
   }
 
   // Save edits
-  saveEditBtn.addEventListener("click", () => {
-    if (currentEditIndex !== null) {
-      contacts[currentEditIndex].name = editNameInput.value;
-      contacts[currentEditIndex].phone = editPhoneInput.value;
-      contacts[currentEditIndex].email = editEmailInput.value;
-      MyFunction();
-      editPopup.style.display = "none";
-      currentEditIndex = null;
-    }
-  });
+ saveEditBtn.addEventListener("click", () => {
+  if (currentEditContact) {
+    currentEditContact.name = editNameInput.value.trim();
+    currentEditContact.phone = editPhoneInput.value.trim();
+    currentEditContact.email = editEmailInput.value.trim();
+
+    MyFunction(); // re-render updated contact list
+    editPopup.style.display = "none";
+    currentEditContact = null; // reset
+  }
+});
 
 /*******************************************************************************************************************************************************/
 //                                                                   add new contact pop up 
