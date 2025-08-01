@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>For Final</title>
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="style.css" />
     <script src="script.js"></script>
 
 
@@ -16,12 +16,13 @@
         <h1>Wisteria Lane - Phone Book</h1>
     </header>
     <main>
-        <div class="container">
+      <div class="container">
             <div class="top-part">
+                  <p id="people-count">0 people</p>
                 <input type="text" id="searchInput" placeholder="Search" />
                     <div id="top-part-buttons">
-                         <button id="deletAlluser-btn" title="Delete All"<i >&#x1F5D1;</i></button>
-                         <button><i>&#x2795;</i></button>
+                        <button id="deletAlluser-btn" title="Delete All"><i>&#x1F5D1;</i></button>
+                        <button id="add-btn" title="Add"><i>&#x2795;</i></button>
                     </div>
             </div>
     
@@ -35,7 +36,9 @@
                     <a href="#" class="bottom-options" id="close-popup">Close</a>
                 </div>  
             </section>  
-             <section id="edit-popup" class="overlay">
+
+
+            <section id="edit-popup" class="overlay">
                 <div class="popup">
                  <h2>Edit Contact</h2>
                    <label>Name:</label>
@@ -51,8 +54,9 @@
                   <a href="#" class="bottom-options" id="close-edit-popup">Cancel</a>
                    </div>
              </section> 
-
-             <section id="add-popup" class="overlay">
+             
+             
+            <section id="add-popup" class="overlay">
                 <div class="popup">
                    <h2>Add New Contact</h2>
 
@@ -74,6 +78,7 @@
                 <a href="#" class="bottom-options" id="close-add-popup">Cancel</a>
               </div>
             </section>
+
         </div>
 
         <section id="gallery">
@@ -108,7 +113,7 @@
         </section>
     </main>
     
-    <footer> &copy; All rights reserved (Nadine) </footer>
+    <footer> &copy; All rights reserved (Nadine- jabareen) </footer>
 
     </body>
     
